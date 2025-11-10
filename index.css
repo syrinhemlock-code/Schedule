@@ -1,17 +1,10 @@
-@font-face {
-  font-family: 'BurbankBold';
-  src: url('https://syrinhemlock-code.github.io/Schedule/fonts/burbankbigcondensed_bold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   background-color: #552A3D;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-family: 'BurbankBold', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow-x: hidden;
 }
 
@@ -20,13 +13,28 @@ h1 {
   font-size: 6em;
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 2ch; /* space from the image */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: left; /* let it align naturally in flex */
+  text-align: left;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2ch; /* space between avatar and h1 */
 }
 
 footer { 
   margin-right: 1em;
+  margin-top: auto;
+  text-align: right;
+  padding: 10px 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+footer a:visited {
+  color: white;
 }
 
 .image-cropper {
@@ -43,14 +51,9 @@ img {
   display: inline;
   margin: 0 auto;
   height: 100%;
+  width: 100%;
   width: auto;
   object-fit: cover;
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .socials {
@@ -63,7 +66,7 @@ img {
 
 .social-button {
   text-decoration: none;
-  color: #C3B4D6;
+  color: #C3B4D6; /* changed from white */
   margin: 0 10px;
   position: relative;
   display: inline-block;
@@ -103,6 +106,13 @@ img {
 .TableHeader {
   font-weight: bold;
   font-size: 3em;
+  background-color: #C3B4D6; /* match boxes */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  border: 4px solid black;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  text-align: center;
 }
 
 .scheduleStream,
@@ -110,7 +120,7 @@ img {
 .scheduleDay {
   font-size: 2.5em;
   text-align: center;
-  background-color: #C3B4D6 !important; /* force box color */
+  background-color: #C3B4D6; /* changed from white */
   border-radius: 25px;
   border: 4px solid black;
   padding-top: 0.33em;
@@ -149,27 +159,25 @@ img {
     height: 10em;
   }
   
-  .scheduleStream,
-  .scheduleDate,
-  .scheduleDay,
-  .TableHeader {
+  .scheduleStream, .scheduleDate, .scheduleDay, .TableHeader {
     font-size: 1.5em;
   }
 }
 
 #NextStreamCountdown {
   margin-top: 0.25em;
-  background-color: #C3B4D6 !important; /* force box color */
+  background-color: #C3B4D6; /* changed from white */
   border-radius: 25px;
   border: 4px solid black;
   font-size: 3em;
+  color: black;
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 #NextStreamCountdown > div {
-  /* text stays as is */
+  color: black;
 }
 
 .center-div,
@@ -178,18 +186,6 @@ img {
 #NextStreamCountdown {
   flex-grow: 0;
   width: 100%;
-}
-
-footer {
-  margin-top: auto;
-  text-align: right;
-  padding: 10px 0;
-  color: white;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-footer a:visited {
-  color: white;
 }
 
 .tooltip {
@@ -228,6 +224,7 @@ footer a:visited {
   display: none;
 }
 
+/* Added styles for links in stream schedule */
 .scheduleStream a {
   color: #0066cc;
   text-decoration: none;
@@ -239,6 +236,7 @@ footer a:visited {
   text-decoration: underline;
 }
 
+/* Stream now button styling */
 #streamNow a {
   display: inline-block;
   background-color: #9146FF;
