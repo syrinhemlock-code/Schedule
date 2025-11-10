@@ -56,7 +56,7 @@ img {
 
 .social-button {
   text-decoration: none;
-  color: #C3B4D6; /* changed from #fff */
+  color: #C3B4D6; /* parent color for icon fallback */
   margin: 0 10px;
   position: relative;
   display: inline-block;
@@ -67,13 +67,14 @@ img {
 }
 
 .social-button i {
+  color: #C3B4D6; /* explicit icon color */
   transition: color 0.3s, transform 0.2s;
   margin-right: 0.25em;
   margin-left: 0.25em;
 }
 
 .social-button:hover i {
-  color: #ddd;
+  color: #E0D4EB; /* slightly lighter on hover */
   transform: scale(1.1);
 }
 
