@@ -20,8 +20,9 @@ h1 {
   font-size: 6em;
   margin-top: auto;
   margin-bottom: auto;
-  text-align: center;
+  margin-left: 2ch; /* space from the image */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: left; /* let it align naturally in flex */
 }
 
 footer { 
