@@ -1,78 +1,63 @@
 <!DOCTYPE html>
-    <!--
-      This website was generated with Erinet Website Generator
-      
-      LIVE STREAM DATA:
-      This website automatically fetches stream data from:
-      https://https://crud.eri.bot/getWeek/{streamerId}
-      
-      The streams will refresh every 30 minutes while the page is open.
-      Always displays all 7 days of the week, starting with today.
-    -->
-    <html>
-      <head>
-        <title>Syrin_Hemlock</title>
-        <link rel="stylesheet" href="index.css" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        />
-        <script src="index.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#552A3D">
-        <meta name="description" content="Syrin_Hemlock's official website - Check out stream schedule and social media links">
-      </head>
-      <body>
-        <div class="center-div">
-          <div class="content">
-            <div class="image-cropper">
-              <img src="https://cdn.discordapp.com/avatars/1366265142760964149/c63e61fe031ff09b4334c6848b9f4d6f.png" class="rounded" alt="Syrin_Hemlock's profile picture" />
-            </div>
-            <h1>Syrin_Hemlock</h1>
-          </div>
+<html>
+  <head>
+    <title>Syrin_Hemlock</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="index.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#552A3D">
+    <meta name="description" content="Syrin_Hemlock's official website - Check out stream schedule and social media links">
+  </head>
+  <body>
+    <div class="center-div">
+      <div class="content">
+        <div class="image-cropper">
+          <img src="https://cdn.discordapp.com/avatars/1366265142760964149/c63e61fe031ff09b4334c6848b9f4d6f.png" class="rounded" alt="Syrin_Hemlock's profile picture" />
         </div>
-        <div class="socials">
-          
-          <a href="https://www.twitch.tv/Syrin_Hemlock" target="_blank" class="social-button">
-            <i class="fab fa-brands fa-twitch"></i>
-            <span class="tooltip">Twitch</span>
-          </a>
+        <h1>Syrin_Hemlock</h1>
+      </div>
+    </div>
 
-          <a href="https://x.com/Syrin_Hemlock" target="_blank" class="social-button">
-            <i class="fab fa-brands fa-twitter"></i>
-            <span class="tooltip">Twitter</span>
-          </a>
+    <div class="socials">
+      <a href="https://www.twitch.tv/Syrin_Hemlock" target="_blank" class="social-button">
+        <i class="fab fa-twitch"></i>
+        <span class="tooltip">Twitch</span>
+      </a>
 
-          <a href="https://www.youtube.com/@SyrinHemlock" target="_blank" class="social-button">
-            <i class="fab fa-brands fa-youtube"></i>
-            <span class="tooltip">YouTube</span>
-          </a>
-        </div>
-        
-        <!-- 
-          This schedule automatically updates from the API:
-          https://https://crud.eri.bot/getWeek/{streamerId}
-          
-          Always displays all 7 days of the week, starting with today
-        -->
-        <div id="gridSchedule" class="gridSchedule">
-          <div class="gridRow">
-            <div class="TableHeader scheduleDay">Day</div>
-            <div class="TableHeader scheduleDate">Date</div>
-            <div class="TableHeader scheduleStream">stream/time</div>
-          </div>
-          
-        </div>
-        <div id="NextStreamCountdown" class="center">
-          <div id="streamNow" hidden>
-            <b>Stream is NOW! <a href="https://www.twitch.tv/Syrin_Hemlock">Join the stream</a></b>
-          </div>
-          <div id="streamCountdown">
-            <b>Next Stream Countdown: <span id="Countdown"></span></b>
-          </div>
-        </div>
-        <footer>
-          <p>Made with <a href="https://eri.bot">Eribot</a></p>
-        </footer>
-      </body>
-    </html>
+      <a href="https://x.com/Syrin_Hemlock" target="_blank" class="social-button">
+        <i class="fab fa-twitter"></i>
+        <span class="tooltip">Twitter</span>
+      </a>
+
+      <a href="https://www.youtube.com/@SyrinHemlock" target="_blank" class="social-button">
+        <i class="fab fa-youtube"></i>
+        <span class="tooltip">YouTube</span>
+      </a>
+    </div>
+
+    <div id="gridSchedule" class="gridSchedule">
+      <div class="gridRow">
+        <div class="TableHeader scheduleDay">Day</div>
+        <div class="TableHeader scheduleDate">Date</div>
+        <div class="TableHeader scheduleStream">stream/time</div>
+      </div>
+    </div>
+
+    <div id="NextStreamCountdown" class="center">
+      <div id="streamNow" hidden>
+        <b>Stream is NOW! <a href="https://www.twitch.tv/Syrin_Hemlock">Join the stream</a></b>
+      </div>
+      <div id="streamCountdown">
+        <b>Next Stream Countdown: <span id="Countdown"></span></b>
+      </div>
+    </div>
+
+    <footer>
+      <p>Made with <a href="https://eri.bot">Eribot</a></p>
+    </footer>
+  </body>
+</html>
