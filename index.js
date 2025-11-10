@@ -216,7 +216,7 @@ Date.prototype.addDays = function (days) {
       streamRow.innerHTML = `
               <div class="scheduleDay">${dayName}</div>
               <div class="scheduleDate">${chosen_stream.date}</div>
-              <div class="scheduleStream"><a href=https://twitch.tv/NightroseVT>${chosen_stream.name}</a> at ${chosen_stream.time}</div>
+              <div class="scheduleStream"><a href=https://twitch.tv/Syrin_Hemlock>${chosen_stream.name}</a> at ${chosen_stream.time}</div>
             `;
       gridSchedule.appendChild(streamRow);
     } else {
