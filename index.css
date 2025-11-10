@@ -56,7 +56,6 @@ img {
 
 .social-button {
   text-decoration: none;
-  color: #C3B4D6; /* parent color for icon fallback */
   margin: 0 10px;
   position: relative;
   display: inline-block;
@@ -67,14 +66,13 @@ img {
 }
 
 .social-button i {
-  color: #C3B4D6; /* explicit icon color */
+  color: #C3B4D6 !important; /* force the icon color */
   transition: color 0.3s, transform 0.2s;
-  margin-right: 0.25em;
-  margin-left: 0.25em;
+  margin: 0 0.25em;
 }
 
 .social-button:hover i {
-  color: #E0D4EB; /* slightly lighter on hover */
+  color: #E0D4EB !important; /* hover color */
   transform: scale(1.1);
 }
 
@@ -99,77 +97,29 @@ img {
   font-size: 3em;
 }
 
-.scheduleStream {
+.scheduleStream, .scheduleDate, .scheduleDay {
   font-size: 2.5em;
   text-align: center;
   background-color: #dddddd;
   border-radius: 25px;
   border: 4px solid black;
-  padding-top: 0.33em;
-  padding-bottom: 0.33em;
+  padding: 0.33em 0;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.scheduleDate {
-  font-size: 2.5em;
-  text-align: center;
-  background-color: #dddddd;
-  border-radius: 25px;
-  border: 4px solid black;
-  padding-top: 0.33em;
-  padding-bottom: 0.33em;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.scheduleDay {
-  font-size: 2.5em;
-  text-align: center;
-  background-color: #dddddd;
-  border-radius: 25px;
-  border: 4px solid black;
-  padding-top: 0.33em;
-  padding-bottom: 0.33em;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 900px) {
-  h1 {
-    font-size: 10em;
-  }
-
-  .content {
-    flex-direction: column;
-  }
-  
-  .gridRow {
-    grid-template-columns: 1fr;
-    gap: 0.5em;
-  }
+  h1 { font-size: 10em; }
+  .content { flex-direction: column; }
+  .gridRow { grid-template-columns: 1fr; gap: 0.5em; }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 3em;
-  }
-  
-  .social-button {
-    font-size: calc(2vw + 1em);
-  }
-  
-  .image-cropper {
-    width: 10em;
-    height: 10em;
-  }
-  
-  .scheduleStream, .scheduleDate, .scheduleDay, .TableHeader {
-    font-size: 1.5em;
-  }
+  h1 { font-size: 3em; }
+  .social-button { font-size: calc(2vw + 1em); }
+  .image-cropper { width: 10em; height: 10em; }
+  .scheduleStream, .scheduleDate, .scheduleDay, .TableHeader { font-size: 1.5em; }
 }
 
 #NextStreamCountdown {
@@ -181,32 +131,22 @@ img {
   color: black;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-#NextStreamCountdown > div {
-  color: black;
-}
+#NextStreamCountdown > div { color: black; }
 
-.center-div,
-.socials,
-.gridSchedule,
-#NextStreamCountdown {
-  flex-grow: 0;
-  width: 100%;
-}
+.center-div, .socials, .gridSchedule, #NextStreamCountdown { flex-grow: 0; width: 100%; }
 
 footer {
   margin-top: auto;
   text-align: right;
   padding: 10px 0;
   color: white;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
-footer a:visited {
-  color: white;
-}
+footer a:visited { color: white; }
 
 .tooltip {
   visibility: hidden;
@@ -214,9 +154,7 @@ footer a:visited {
   color: black;
   text-align: center;
   border-radius: 10px;
-  border-color: black;
-  border-width: 3px;
-  border-style: solid;
+  border: 3px solid black;
   padding: 5px;
   position: absolute;
   z-index: 1;
@@ -227,36 +165,23 @@ footer a:visited {
   transition: opacity 0.3s;
   white-space: nowrap;
   font-size: 0.6em;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
-.social-button:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
+.social-button:hover .tooltip { visibility: visible; opacity: 1; }
 
-.center {
-  width: 100%;
-  text-align: center;
-}
+.center { width: 100%; text-align: center; }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 
-/* Added styles for links in stream schedule */
 .scheduleStream a {
   color: #0066cc;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.scheduleStream a:hover {
-  color: #0044aa;
-  text-decoration: underline;
-}
+.scheduleStream a:hover { color: #0044aa; text-decoration: underline; }
 
-/* Stream now button styling */
 #streamNow a {
   display: inline-block;
   background-color: #9146FF;
@@ -268,6 +193,4 @@ footer a:visited {
   transition: background-color 0.2s;
 }
 
-#streamNow a:hover {
-  background-color: #772ce8;
-}
+#streamNow a:hover { background-color: #772ce8; }
