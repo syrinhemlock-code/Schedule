@@ -109,7 +109,7 @@ img {
 .scheduleDay {
   font-size: 2.5em;
   text-align: center;
-  background-color: #C3B4D6; /* Changed box color only */
+  background-color: #C3B4D6 !important; /* force box color */
   border-radius: 25px;
   border: 4px solid black;
   padding-top: 0.33em;
@@ -158,7 +158,7 @@ img {
 
 #NextStreamCountdown {
   margin-top: 0.25em;
-  background-color: #C3B4D6; /* Changed box color only */
+  background-color: #C3B4D6 !important; /* force box color */
   border-radius: 25px;
   border: 4px solid black;
   font-size: 3em;
@@ -168,7 +168,7 @@ img {
 }
 
 #NextStreamCountdown > div {
-  /* text remains unchanged */
+  /* text stays as is */
 }
 
 .center-div,
@@ -250,5 +250,4 @@ footer a:visited {
 }
 
 #streamNow a:hover {
-  background-color: #772ce8;
-}
+  backgr
