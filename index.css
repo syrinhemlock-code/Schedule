@@ -11,28 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#552A3D">
     <meta name="description" content="Syrin_Hemlock's official website - Check out stream schedule and social media links">
+
     <style>
-      /* --- Profile horizontal layout --- */
-      .profile-info {
-        display: flex;           /* horizontal layout */
-        align-items: center;     /* vertical align */
-        gap: 1em;                /* space between pic and name */
-      }
-
-      .profile-info h1 {
-        display: inline-block;   /* prevents flex stacking inside h1 */
-        margin: 0;               /* remove vertical margins */
-        font-size: 6em;
-        color: #C3B4D6;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      }
-
+      /* --- Profile horizontal layout fix --- */
       .center-div {
         display: flex;
         justify-content: center;
         margin-top: 20px;
       }
 
+      .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 1em; /* spacing between picture and name */
+      }
+
+      /* Override aggressive h1 flex inside center-div */
+      .center-div h1 {
+        display: inline-block !important;
+        margin: 0 !important;
+        vertical-align: middle;
+      }
+
+      /* --- Image cropper --- */
       .image-cropper {
         width: 15em;
         height: 15em;
@@ -49,7 +50,14 @@
         display: block;
       }
 
-      /* --- Socials --- */
+      /* --- h1 styling --- */
+      h1 {
+        color: #C3B4D6;
+        font-size: 6em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* --- Social buttons --- */
       .socials {
         display: flex;
         justify-content: center;
@@ -177,13 +185,13 @@
 
       /* --- Responsive --- */
       @media (max-width: 900px) {
-        .profile-info h1 {
-          font-size: 4em;
-        }
         .center-div {
           flex-direction: column; /* stack pic above name */
           align-items: center;
           gap: 1em;
+        }
+        .profile-info h1 {
+          font-size: 4em;
         }
         .gridSchedule {
           grid-template-columns: 1fr;
