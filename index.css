@@ -35,7 +35,7 @@ footer a:visited {
 
 /* PROFILE PICTURE */
 .image-cropper {
-  flex-shrink: 0;         /* stop flex from resizing */
+  flex-shrink: 0;         
   width: 12em !important;   
   height: 12em !important;
   max-width: none !important;
@@ -58,7 +58,7 @@ img {
 .profile-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* align start with Twitch logo */
   gap: 1em;
 }
 
@@ -66,9 +66,11 @@ img {
 .center-div {
   display: flex;
   align-items: center;
-  justify-content: center;  /* center horizontally */
-  gap: 2em;
+  justify-content: flex-start;  /* align content to left */
+  gap: 1.5em;                   /* space between pfp and name */
+  padding-left: 1em;            /* adjust to match Twitch icon start */
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Image + name side by side */
@@ -86,7 +88,7 @@ img {
 
 .socials {
   display: flex;
-  justify-content: center;
+  justify-content: center;  /* keep socials centered */
   flex-wrap: wrap;
   gap: 1em;
 }
@@ -247,7 +249,9 @@ img {
   .center-div {
     flex-direction: column;
     align-items: center;
+    justify-content: center;  /* center on smaller screens */
     gap: 1em;
+    padding-left: 0;         /* remove left padding on mobile */
   }
 
   .content {
@@ -276,7 +280,7 @@ img {
   }
 
   .image-cropper {
-    width: 8em !important;   /* proportional shrink on mobile */
+    width: 8em !important;
     height: 8em !important;
   }
 
