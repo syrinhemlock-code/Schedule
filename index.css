@@ -275,3 +275,8 @@ img {
   align-items: center;    /* vertically center image + text */
   gap: 1em;               /* space between image and name */
 }
+.content h1 {
+  display: inline-block !important;  /* stops h1 from using flex */
+  margin: 0 !important;              /* removes top/bottom auto margins */
+  vertical-align: middle;            /* aligns text with image vertically */
+}
