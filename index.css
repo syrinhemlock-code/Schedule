@@ -56,28 +56,26 @@ img {
   object-fit: cover;
 }
 
-/* CENTER DIV FIX: whole block centered above socials */
-.center-div {
+/* NEW BLOCK: wrap profile pic + name + socials */
+.profile-block {
   display: flex;
-  justify-content: center; /* center the whole profile+name block */
-  align-items: center;     /* vertical alignment */
-  flex-wrap: wrap;         /* responsive stacking */
-  gap: 2em;                /* spacing if multiple items */
+  flex-direction: column;
+  align-items: center; /* centers whole block horizontally */
+  gap: 1em;            /* space between name and socials */
 }
 
 /* CONTENT: spacing between profile picture and name */
-.content {
+.center-div {
   display: flex;
   align-items: center;
-  gap: 2em; /* space between profile picture and name */
+  gap: 2em; /* space between picture and name */
 }
 
 .socials {
-  margin-top: 20px;
   display: flex;
-  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 1em; /* optional: space between social buttons */
 }
 
 .social-button {
@@ -123,7 +121,7 @@ img {
 .TableHeader {
   font-weight: bold;
   font-size: 3em;
-  background-color: #6F4C65; /* slightly lighter purple */
+  background-color: #6F4C65;
   color: white;
   border-radius: 25px;
   border: 4px solid black;
@@ -137,8 +135,8 @@ img {
 .scheduleDay {
   font-size: 2.5em;
   text-align: center;
-  background-color: #6F4C65; /* slightly lighter purple */
-  color: white; /* readable text */
+  background-color: #6F4C65;
+  color: white;
   border-radius: 25px;
   border: 4px solid black;
   padding-top: 0.33em;
@@ -155,12 +153,8 @@ img {
 
   .center-div {
     flex-direction: column; /* stack picture above name */
-    justify-content: center; /* keep block centered */
-  }
-
-  .content {
-    flex-direction: column;  /* stack picture and name vertically */
-    gap: 1em;                /* smaller gap for stacked layout */
+    align-items: center;
+    gap: 1em;
   }
 
   .gridRow {
@@ -193,7 +187,7 @@ img {
 
 #NextStreamCountdown {
   margin-top: 0.25em;
-  background-color: #6F4C65; /* match schedule boxes */
+  background-color: #6F4C65;
   color: white;
   border-radius: 25px;
   border: 4px solid black;
