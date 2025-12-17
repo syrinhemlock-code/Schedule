@@ -56,14 +56,20 @@ img {
   object-fit: cover;
 }
 
-/* UPDATED CONTENT SECTION: profile picture on the left */
+/* CENTER DIV FIX: move everything to the left */
+.center-div {
+  display: flex;
+  justify-content: flex-start; /* push items to left */
+  align-items: center;         /* vertical alignment */
+  padding-left: 2em;           /* space from screen edge */
+  flex-wrap: wrap;             /* responsive stacking */
+}
+
+/* CONTENT: spacing between picture and name */
 .content {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* move items to the left */
   gap: 2em; /* space between picture and name */
-  padding-left: 2em; /* space from left edge */
-  flex-wrap: wrap; /* keeps layout responsive */
 }
 
 .socials {
@@ -147,11 +153,14 @@ img {
     font-size: 10em;
   }
 
+  .center-div {
+    justify-content: center; /* center content on smaller screens */
+    padding-left: 0;         /* remove left padding */
+  }
+
   .content {
-    flex-direction: column; /* stack picture above name on smaller screens */
-    justify-content: center; /* center content */
-    padding-left: 0; /* remove left padding for mobile */
-    gap: 1em; /* smaller gap for stacked layout */
+    flex-direction: column;  /* stack picture above name */
+    gap: 1em;                /* smaller gap for stacked layout */
   }
 
   .gridRow {
