@@ -34,8 +34,10 @@ footer a:visited {
 }
 
 .image-cropper {
-  width: 15em;
-  height: 15em;
+  width: 12em;   /* smaller profile pic */
+  height: 12em;  /* smaller profile pic */
+  max-width: 100%;
+  max-height: 100%;
   position: relative;
   overflow: hidden;
   border-radius: 30%;
@@ -272,8 +274,8 @@ img {
   }
 
   .image-cropper {
-    width: 10em;
-    height: 10em;
+    width: 8em;   /* proportional shrink on mobile */
+    height: 8em;
   }
 
   .content h1 {
