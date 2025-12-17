@@ -280,3 +280,25 @@ img {
   margin: 0 !important;              /* removes top/bottom auto margins */
   vertical-align: middle;            /* aligns text with image vertically */
 }
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;   /* stack image above name */
+    align-items: center;      /* center horizontally */
+    gap: 1em;                 /* spacing between image and name */
+  }
+
+  .content h1 {
+    font-size: 4em;           /* scale down on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 3em;           /* smaller font on very small screens */
+  }
+
+  .image-cropper {
+    width: 10em;
+    height: 10em;             /* shrink image */
+  }
+}
