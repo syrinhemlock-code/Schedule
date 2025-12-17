@@ -1,268 +1,272 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Syrin_Hemlock</title>
-    <link rel="stylesheet" href="index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <script src="index.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#552A3D">
-    <meta name="description" content="Syrin_Hemlock's official website - Check out stream schedule and social media links">
+@font-face {
+  font-family: 'Burbank';
+  src: url('fonts/burbankbigcondensed_bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-    <style>
-      /* --- Profile horizontal layout fix --- */
-      .center-div {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-      }
+body {
+  background-color: #552A3D;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Burbank', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
 
-      .profile-info {
-        display: flex;
-        align-items: center;
-        gap: 1em; /* spacing between picture and name */
-      }
+h1 {
+  color: #C3B4D6;
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+  font-size: 6em;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-      /* Override aggressive h1 flex inside center-div */
-      .center-div h1 {
-        display: inline-block !important;
-        margin: 0 !important;
-        vertical-align: middle;
-      }
+footer {
+  margin-top: auto;
+  text-align: right;
+  padding: 10px 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
 
-      /* --- Image cropper --- */
-      .image-cropper {
-        width: 15em;
-        height: 15em;
-        position: relative;
-        overflow: hidden;
-        border-radius: 30%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      }
+footer a:visited {
+  color: white;
+}
 
-      .image-cropper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
+.image-cropper {
+  width: 15em;
+  height: 15em;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30%;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
-      /* --- h1 styling --- */
-      h1 {
-        color: #C3B4D6;
-        font-size: 6em;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      }
+img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
-      /* --- Social buttons --- */
-      .socials {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1em;
-        margin-top: 1em;
-      }
+/* NEW BLOCK: wrap profile pic + name + socials */
+.profile-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers whole block horizontally */
+  gap: 1em;            /* space between name and socials */
+}
 
-      .social-button {
-        text-decoration: none;
-        color: #C3B4D6;
-        font-size: calc(3.5vw + 1em);
-        position: relative;
-        cursor: pointer;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        transition: font-size 0.01s ease;
-      }
+/* CONTENT: spacing between profile picture and name */
+.center-div {
+  display: flex;
+  align-items: center;
+  gap: 2em; /* space between picture and name */
+}
 
-      .social-button i {
-        transition: color 0.3s, transform 0.2s;
-        margin: 0 0.25em;
-      }
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em; /* optional: space between social buttons */
+}
 
-      .social-button:hover i {
-        color: #ddd;
-        transform: scale(1.1);
-      }
+.social-button {
+  text-decoration: none;
+  color: #C3B4D6;
+  margin: 0 10px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: calc(3.5vw + 1em);
+  transition: font-size 0.01s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-      .tooltip {
-        visibility: hidden;
-        background-color: white;
-        color: black;
-        text-align: center;
-        border-radius: 10px;
-        border: 3px solid black;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-        white-space: nowrap;
-        font-size: 0.6em;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-      }
+.social-button i {
+  transition: color 0.3s, transform 0.2s;
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+}
 
-      .social-button:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-      }
+.social-button:hover i {
+  color: #ddd;
+  transform: scale(1.1);
+}
 
-      /* --- Schedule --- */
-      .gridSchedule {
-        display: grid;
-        grid-template-columns: 20% 13% 67%;
-        gap: 10px;
-        margin: 1em 0;
-        width: 100%;
-      }
+.gridSchedule {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
 
-      .gridRow {
-        display: contents;
-      }
+.gridRow {
+  display: grid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  grid-template-columns: 20% 13% 67%;
+  width: 100%;
+}
 
-      .TableHeader,
-      .scheduleStream,
-      .scheduleDate,
-      .scheduleDay {
-        font-weight: bold;
-        font-size: 2.5em;
-        text-align: center;
-        background-color: #6F4C65;
-        color: white;
-        border-radius: 25px;
-        border: 4px solid black;
-        padding: 0.33em 0;
-        box-sizing: border-box;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      }
+/* Boxes fixed: lighter purple fill, text stays white */
+.TableHeader {
+  font-weight: bold;
+  font-size: 3em;
+  background-color: #6F4C65;
+  color: white;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  text-align: center;
+}
 
-      /* --- Stream Countdown --- */
-      #NextStreamCountdown {
-        margin-top: 0.25em;
-        background-color: #6F4C65;
-        color: white;
-        border-radius: 25px;
-        border: 4px solid black;
-        font-size: 3em;
-        width: 100%;
-        box-sizing: border-box;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        padding: 0.25em;
-      }
+.scheduleStream,
+.scheduleDate,
+.scheduleDay {
+  font-size: 2.5em;
+  text-align: center;
+  background-color: #6F4C65;
+  color: white;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-      #streamNow a {
-        display: inline-block;
-        background-color: #9146FF;
-        color: white;
-        padding: 0.1em 0.5em;
-        margin-left: 0.5em;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.2s;
-      }
+@media (max-width: 900px) {
+  h1 {
+    font-size: 10em;
+  }
 
-      #streamNow a:hover {
-        background-color: #772ce8;
-      }
+  .center-div {
+    flex-direction: column; /* stack picture above name */
+    align-items: center;
+    gap: 1em;
+  }
 
-      /* --- Footer --- */
-      footer {
-        margin-top: auto;
-        text-align: right;
-        padding: 10px 0;
-        color: white;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-      }
+  .gridRow {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+}
 
-      footer a:visited {
-        color: white;
-      }
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3em;
+  }
 
-      /* --- Responsive --- */
-      @media (max-width: 900px) {
-        .center-div {
-          flex-direction: column; /* stack pic above name */
-          align-items: center;
-          gap: 1em;
-        }
-        .profile-info h1 {
-          font-size: 4em;
-        }
-        .gridSchedule {
-          grid-template-columns: 1fr;
-        }
-      }
+  .social-button {
+    font-size: calc(2vw + 1em);
+  }
 
-      @media (max-width: 480px) {
-        .profile-info h1 {
-          font-size: 3em;
-        }
-        .image-cropper {
-          width: 10em;
-          height: 10em;
-        }
-        .social-button {
-          font-size: calc(2vw + 1em);
-        }
-        .TableHeader,
-        .scheduleStream,
-        .scheduleDate,
-        .scheduleDay {
-          font-size: 1.5em;
-        }
-      }
-    </style>
-  </head>
+  .image-cropper {
+    width: 10em;
+    height: 10em;
+  }
 
-  <body>
-    <div class="center-div">
-      <div class="profile-info">
-        <div class="image-cropper">
-          <img src="images/avatar.png" alt="syrin_hemlocks profile picture">
-        </div>
-        <h1>Syrin_Hemlock</h1>
-      </div>
-    </div>
+  .scheduleStream,
+  .scheduleDate,
+  .scheduleDay,
+  .TableHeader {
+    font-size: 1.5em;
+  }
+}
 
-    <div class="socials">
-      <a href="https://www.twitch.tv/Syrin_Hemlock" target="_blank" class="social-button">
-        <i class="fab fa-twitch"></i>
-        <span class="tooltip">Twitch</span>
-      </a>
-      <a href="https://x.com/Syrin_Hemlock" target="_blank" class="social-button">
-        <i class="fab fa-twitter"></i>
-        <span class="tooltip">Twitter</span>
-      </a>
-      <a href="https://www.youtube.com/@SyrinHemlock" target="_blank" class="social-button">
-        <i class="fab fa-youtube"></i>
-        <span class="tooltip">YouTube</span>
-      </a>
-    </div>
+#NextStreamCountdown {
+  margin-top: 0.25em;
+  background-color: #6F4C65;
+  color: white;
+  border-radius: 25px;
+  border: 4px solid black;
+  font-size: 3em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
 
-    <div id="gridSchedule" class="gridSchedule">
-      <div class="gridRow">
-        <div class="TableHeader scheduleDay">Day</div>
-        <div class="TableHeader scheduleDate">Date</div>
-        <div class="TableHeader scheduleStream">stream/time</div>
-      </div>
-    </div>
+#NextStreamCountdown > div {
+  color: white;
+}
 
-    <div id="NextStreamCountdown" class="center">
-      <div id="streamNow" hidden>
-        <b>Stream is NOW! <a href="https://www.twitch.tv/Syrin_Hemlock">Join the stream</a></b>
-      </div>
-      <div id="streamCountdown">
-        <b>Next Stream Countdown: <span id="Countdown"></span></b>
-      </div>
-    </div>
+.center-div,
+.socials,
+.gridSchedule,
+#NextStreamCountdown {
+  flex-grow: 0;
+  width: 100%;
+}
 
-    <footer>
-      <p>Made with <a href="https://eri.bot">Eribot</a></p>
-    </footer>
-  </body>
-</html>
+.tooltip {
+  visibility: hidden;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-size: 0.6em;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.center {
+  width: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Links inside schedule */
+.scheduleStream a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.scheduleStream a:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+/* Stream Now button */
+#streamNow a {
+  display: inline-block;
+  background-color: #9146FF;
+  color: white;
+  padding: 0.1em 0.5em;
+  margin-left: 0.5em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+#streamNow a:hover {
+  background-color: #772ce8;
+}
