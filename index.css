@@ -270,3 +270,8 @@ img {
 #streamNow a:hover {
   background-color: #772ce8;
 }
+.content {
+  display: flex;          /* make children horizontal */
+  align-items: center;    /* vertically center image + text */
+  gap: 1em;               /* space between image and name */
+}
