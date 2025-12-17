@@ -38,6 +38,7 @@ footer a:visited {
   color: white;
 }
 
+/* Profile picture */
 .image-cropper {
   width: 15em;
   height: 15em;
@@ -51,31 +52,34 @@ footer a:visited {
 img {
   display: inline;
   margin: 0 auto;
-  height: 100%;
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-/* NEW BLOCK: wrap profile pic + name + socials */
+/* Profile block */
 .profile-block {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centers whole block horizontally */
-  gap: 1em;            /* space between name and socials */
+  align-items: center;
+  gap: 1em;
 }
 
-/* CONTENT: spacing between profile picture and name */
+/* Content spacing */
 .center-div {
   display: flex;
   align-items: center;
-  gap: 2em; /* space between picture and name */
+  justify-content: center;
+  gap: 1em;
 }
 
+/* Social buttons */
 .socials {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1em; /* optional: space between social buttons */
+  gap: 1em;
+  margin-top: 20px;
 }
 
 .social-button {
@@ -101,6 +105,7 @@ img {
   transform: scale(1.1);
 }
 
+/* Schedule grid */
 .gridSchedule {
   width: 100%;
   max-width: 100%;
@@ -117,7 +122,6 @@ img {
   width: 100%;
 }
 
-/* Boxes fixed: lighter purple fill, text stays white */
 .TableHeader {
   font-weight: bold;
   font-size: 3em;
@@ -146,45 +150,7 @@ img {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 900px) {
-  h1 {
-    font-size: 10em;
-  }
-
-  .center-div {
-    flex-direction: column; /* stack picture above name */
-    align-items: center;
-    gap: 1em;
-  }
-
-  .gridRow {
-    grid-template-columns: 1fr;
-    gap: 0.5em;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 3em;
-  }
-
-  .social-button {
-    font-size: calc(2vw + 1em);
-  }
-
-  .image-cropper {
-    width: 10em;
-    height: 10em;
-  }
-
-  .scheduleStream,
-  .scheduleDate,
-  .scheduleDay,
-  .TableHeader {
-    font-size: 1.5em;
-  }
-}
-
+/* Next stream countdown */
 #NextStreamCountdown {
   margin-top: 0.25em;
   background-color: #6F4C65;
@@ -201,14 +167,7 @@ img {
   color: white;
 }
 
-.center-div,
-.socials,
-.gridSchedule,
-#NextStreamCountdown {
-  flex-grow: 0;
-  width: 100%;
-}
-
+/* Tooltips */
 .tooltip {
   visibility: hidden;
   background-color: white;
@@ -243,7 +202,7 @@ img {
   display: none;
 }
 
-/* Links inside schedule */
+/* Links in schedule */
 .scheduleStream a {
   color: white;
   text-decoration: none;
@@ -255,7 +214,7 @@ img {
   text-decoration: underline;
 }
 
-/* Stream Now button */
+/* Stream now button */
 #streamNow a {
   display: inline-block;
   background-color: #9146FF;
@@ -269,4 +228,42 @@ img {
 
 #streamNow a:hover {
   background-color: #772ce8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 10em;
+  }
+  
+  .center-div {
+    flex-direction: column;
+  }
+  
+  .gridRow {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3em;
+  }
+  
+  .social-button {
+    font-size: calc(2vw + 1em);
+  }
+  
+  .image-cropper {
+    width: 10em;
+    height: 10em;
+  }
+  
+  .scheduleStream,
+  .scheduleDate,
+  .scheduleDay,
+  .TableHeader {
+    font-size: 1.5em;
+  }
 }
