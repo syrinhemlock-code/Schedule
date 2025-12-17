@@ -34,8 +34,8 @@ footer a:visited {
 }
 
 .image-cropper {
-  width: 10em;
-  height: 10em;
+  width: 15em;
+  height: 15em;
   position: relative;
   overflow: hidden;
   border-radius: 30%;
