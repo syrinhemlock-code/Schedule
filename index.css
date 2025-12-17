@@ -302,3 +302,6 @@ img {
     height: 10em;             /* shrink image */
   }
 }
+.center-div {
+  justify-content: center; /* center .content horizontally */
+}
