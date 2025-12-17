@@ -56,26 +56,18 @@ img {
   object-fit: cover;
 }
 
-/* Profile Block */
-.profile-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-
-.center-div {
+.content {
   display: flex;
   align-items: center;
-  gap: 2em;
+  justify-content: center;
 }
 
-/* Socials */
 .socials {
+  margin-top: 20px;
   display: flex;
+  width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1em;
 }
 
 .social-button {
@@ -92,7 +84,8 @@ img {
 
 .social-button i {
   transition: color 0.3s, transform 0.2s;
-  margin: 0 0.25em;
+  margin-right: 0.25em;
+  margin-left: 0.25em;
 }
 
 .social-button:hover i {
@@ -100,7 +93,112 @@ img {
   transform: scale(1.1);
 }
 
-/* Tooltip */
+.gridSchedule {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.gridRow {
+  display: grid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  grid-template-columns: 20% 13% 67%;
+  width: 100%;
+}
+
+/* Boxes fixed: lighter purple fill, text stays white */
+.TableHeader {
+  font-weight: bold;
+  font-size: 3em;
+  background-color: #6F4C65; /* slightly lighter purple */
+  color: white;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  text-align: center;
+}
+
+.scheduleStream,
+.scheduleDate,
+.scheduleDay {
+  font-size: 2.5em;
+  text-align: center;
+  background-color: #6F4C65; /* slightly lighter purple */
+  color: white; /* readable text */
+  border-radius: 25px;
+  border: 4px solid black;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 10em;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .gridRow {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  .social-button {
+    font-size: calc(2vw + 1em);
+  }
+
+  .image-cropper {
+    width: 10em;
+    height: 10em;
+  }
+
+  .scheduleStream,
+  .scheduleDate,
+  .scheduleDay,
+  .TableHeader {
+    font-size: 1.5em;
+  }
+}
+
+#NextStreamCountdown {
+  margin-top: 0.25em;
+  background-color: #6F4C65; /* match schedule boxes */
+  color: white;
+  border-radius: 25px;
+  border: 4px solid black;
+  font-size: 3em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+#NextStreamCountdown > div {
+  color: white;
+}
+
+.center-div,
+.socials,
+.gridSchedule,
+#NextStreamCountdown {
+  flex-grow: 0;
+  width: 100%;
+}
+
 .tooltip {
   visibility: hidden;
   background-color: white;
@@ -126,43 +224,13 @@ img {
   opacity: 1;
 }
 
-/* Schedule Grid */
-.gridSchedule {
+.center {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-}
-
-.gridRow {
-  display: grid;
-  margin: 0.5em 0;
-  grid-template-columns: 20% 13% 67%;
-  width: 100%;
-}
-
-/* Table / Schedule Styles */
-.TableHeader,
-.scheduleStream,
-.scheduleDate,
-.scheduleDay,
-#NextStreamCountdown {
-  font-size: 3em;
   text-align: center;
-  background-color: #6F4C65;
-  color: white;
-  border-radius: 25px;
-  border: 4px solid black;
-  padding: 0.33em 0;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.scheduleStream,
-.scheduleDate,
-.scheduleDay {
-  font-size: 2.5em;
+.hidden {
+  display: none;
 }
 
 /* Links inside schedule */
@@ -191,89 +259,4 @@ img {
 
 #streamNow a:hover {
   background-color: #772ce8;
-}
-
-/* Utility Classes */
-.center {
-  width: 100%;
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Layout Fixes */
-.center-div,
-.socials,
-.gridSchedule,
-#NextStreamCountdown {
-  flex-grow: 0;
-  width: 100%;
-}
-
-/* MEDIA QUERIES */
-
-/* Tablets / medium screens */
-@media (max-width: 900px) {
-  h1 {
-    font-size: 10em;
-  }
-
-  .center-div {
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-  }
-
-  .gridRow {
-    grid-template-columns: 1fr;
-    gap: 0.5em;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 3em;
-    text-align: center;
-  }
-
-  /* Stack profile pic, name, and socials; center everything */
-  .center-div,
-  .content,
-  .profile-block {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Profile picture size */
-  .image-cropper {
-    width: 10em;
-    height: 10em;
-    margin: 0 auto;
-  }
-
-  /* Name text */
-  .center-div h1 {
-    text-align: center;
-    margin: 0;
-  }
-
-  /* Social buttons smaller for mobile */
-  .social-button {
-    font-size: calc(2vw + 1em);
-  }
-
-  /* Schedule / table font size adjustments */
-  .scheduleStream,
-  .scheduleDate,
-  .scheduleDay,
-  .TableHeader {
-    font-size: 1.5em;
-  }
 }
