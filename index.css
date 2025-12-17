@@ -270,3 +270,21 @@ img {
 #streamNow a:hover {
   background-color: #772ce8;
 }
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;   /* stack image above name */
+    align-items: center;      /* center horizontally */
+    justify-content: center;  /* optional: center vertically */
+    gap: 1em;                 /* space between picture and name */
+  }
+
+  .image-cropper {
+    width: 10em;
+    height: 10em;
+    margin: 0 auto;           /* ensure it's centered */
+  }
+
+  h1 {
+    font-size: 3em;
+    text-align: center;       /* reinforce centering */
+  }
