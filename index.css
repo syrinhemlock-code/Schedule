@@ -56,20 +56,20 @@ img {
   object-fit: cover;
 }
 
-/* CENTER DIV FIX: move everything to the left */
+/* CENTER DIV FIX: whole block centered above socials */
 .center-div {
   display: flex;
-  justify-content: flex-start; /* push items to left */
-  align-items: center;         /* vertical alignment */
-  padding-left: 2em;           /* space from screen edge */
-  flex-wrap: wrap;             /* responsive stacking */
+  justify-content: center; /* center the whole profile+name block */
+  align-items: center;     /* vertical alignment */
+  flex-wrap: wrap;         /* responsive stacking */
+  gap: 2em;                /* spacing if multiple items */
 }
 
-/* CONTENT: spacing between picture and name */
+/* CONTENT: spacing between profile picture and name */
 .content {
   display: flex;
   align-items: center;
-  gap: 2em; /* space between picture and name */
+  gap: 2em; /* space between profile picture and name */
 }
 
 .socials {
@@ -154,12 +154,12 @@ img {
   }
 
   .center-div {
-    justify-content: center; /* center content on smaller screens */
-    padding-left: 0;         /* remove left padding */
+    flex-direction: column; /* stack picture above name */
+    justify-content: center; /* keep block centered */
   }
 
   .content {
-    flex-direction: column;  /* stack picture above name */
+    flex-direction: column;  /* stack picture and name vertically */
     gap: 1em;                /* smaller gap for stacked layout */
   }
 
