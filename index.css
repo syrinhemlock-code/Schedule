@@ -288,3 +288,20 @@ img {
     font-size: 3em;
     text-align: center;       /* reinforce centering */
   }
+
+@media (max-width: 480px) {
+  .center-div {
+    justify-content: center; /* centers horizontally */
+  }
+
+  .content {
+    flex-direction: column !important; /* stack picture above name */
+    align-items: center !important;    /* center horizontally */
+    gap: 1em !important;               /* space between picture and name */
+  }
+}
+  .image-cropper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
