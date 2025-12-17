@@ -212,7 +212,9 @@ img {
   width: 100%;
 }
 
-/* Media Queries */
+/* MEDIA QUERIES */
+
+/* Tablets / medium screens */
 @media (max-width: 900px) {
   h1 {
     font-size: 10em;
@@ -230,31 +232,44 @@ img {
   }
 }
 
+/* Mobile adjustments */
 @media (max-width: 480px) {
   h1 {
     font-size: 3em;
     text-align: center;
   }
 
+  /* Stack profile pic, name, and socials; center everything */
   .center-div,
-  .content {
+  .content,
+  .profile-block {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1em;
     width: 100%;
+    text-align: center;
   }
 
+  /* Profile picture size */
   .image-cropper {
     width: 10em;
     height: 10em;
     margin: 0 auto;
   }
 
+  /* Name text */
+  .center-div h1 {
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Social buttons smaller for mobile */
   .social-button {
     font-size: calc(2vw + 1em);
   }
 
+  /* Schedule / table font size adjustments */
   .scheduleStream,
   .scheduleDate,
   .scheduleDay,
