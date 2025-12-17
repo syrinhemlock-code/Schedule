@@ -300,7 +300,9 @@ img {
   align-items: center;
   justify-content: flex-start;  /* keep left-aligned */
   gap: 1.5em;                   /* space between pfp and name */
-  padding-left: 25em;          /* shift right slightly, adjust as needed */
+  padding-left: 30em;          /* shift right slightly */
+  padding-top: 10em;             /* move down */
   width: 100%;
   box-sizing: border-box;
 }
+
