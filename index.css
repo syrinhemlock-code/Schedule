@@ -33,11 +33,13 @@ footer a:visited {
   color: white;
 }
 
+/* PROFILE PICTURE */
 .image-cropper {
-  width: 12em;   /* smaller profile pic */
-  height: 12em;  /* smaller profile pic */
-  max-width: 100%;
-  max-height: 100%;
+  flex-shrink: 0;         /* stop flex from resizing */
+  width: 12em !important;   
+  height: 12em !important;
+  max-width: none !important;
+  max-height: none !important;
   position: relative;
   overflow: hidden;
   border-radius: 30%;
@@ -274,8 +276,8 @@ img {
   }
 
   .image-cropper {
-    width: 8em;   /* proportional shrink on mobile */
-    height: 8em;
+    width: 8em !important;   /* proportional shrink on mobile */
+    height: 8em !important;
   }
 
   .content h1 {
